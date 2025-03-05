@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 
+
+// this is what we want to display for each team 
 interface Team {
   school: string;
   name: string;
@@ -8,10 +10,14 @@ interface Team {
   state: string;
 }
 
+
+// welcomes each user to the page and shows them the NCAA Basketball Teams
 function Welcome() {
   return <h1>NCAA Basketball Teams</h1>
 }
 
+
+// What each card will contain, matching the names with the structure of the json
 function TeamCard({ school, name, city, state }: Team) {
   return (
     <div className="team-card" >
@@ -22,6 +28,9 @@ function TeamCard({ school, name, city, state }: Team) {
   );
 }
 
+
+// Fetching the data from the json file, and giving error messages in case they dont import correctly
+// Listing the cards into alphabetical order
 function TeamList() {
   const [teams, setTeams] = useState<Team[]>([]);
   const [error, setError] = useState<string | null>(null);
@@ -57,7 +66,7 @@ function TeamList() {
 }
 
 
-
+// run the app
 function App() {
   return (
     <>
